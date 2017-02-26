@@ -47,6 +47,8 @@ You can still use ```php artisan make:auth``` for the scaffolding of the Masterv
 Or create your own.
 
 If you remove ```Auth::routes();``` from ```php artisan make:auth``` , the routes from the packages will be active.
+
+
 ---------------------------------------------
 
 ## Configuration
