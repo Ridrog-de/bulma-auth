@@ -9,22 +9,22 @@ class BulmaAuthController extends Controller
 
     public function showLoginForm()
     {
-        return view('bulma-auth::login');
+        return view('auth.login');
     }
 
     public function showRegistrationForm ()
     {
-        return view('bulma-auth::register');
+        return view('auth.register');
     }
 
     public function showLinkRequestForm ()
     {
-        return view('bulma-auth::passwords.email');
+        return view('auth.passwords.email');
     }
 
     public function showResetForm ($token)
     {
-        return view('bulma-auth::passwords.reset', compact('token'));
+        return view('auth.passwords.reset', compact('token'));
     }
 
 }

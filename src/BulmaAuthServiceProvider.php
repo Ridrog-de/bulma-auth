@@ -2,6 +2,7 @@
 
 namespace Ridrog\BulmaAuth;
 
+use Ridrog\BulmaAuth\Console\MakeBulmaAuthCommand;
 use Illuminate\Support\ServiceProvider;
 
 class BulmaAuthServiceProvider extends ServiceProvider
@@ -21,11 +22,15 @@ class BulmaAuthServiceProvider extends ServiceProvider
             __DIR__.'/config.php' => config_path('bulma-auth.php'),
         ], 'bulma-auth-config');
 
-        $this->loadViewsFrom(__DIR__.'/views', 'bulma-auth');
+        // $this->loadViewsFrom(__DIR__.'/Views', 'bulma-auth');
 
-        $this->publishes([
-            __DIR__.'/views' => resource_path('views/vendor/bulma-auth'),
-        ], 'bulma-auth-views');
+
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeBulmaAuthCommand::class,
+            ]);
+        }
 
     }
 
