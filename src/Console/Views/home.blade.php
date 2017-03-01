@@ -25,10 +25,10 @@
 <div class="hero-body">
     <div class="container has-text-centered">
         <h1 class="title">
-            Title
+            Home
         </h1>
         <h2 class="subtitle">
-            Subtitle
+            home.blade.php Subtitle
         </h2>
     </div>
 </div>

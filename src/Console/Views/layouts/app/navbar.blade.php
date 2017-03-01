@@ -5,8 +5,15 @@
             <div class="container">
                 <div class="nav-left">
                     <a href="/" class="nav-item">
-                        <img src="img/logo/bulma.png" alt="Logo">
+                        <img src="/img/logo/bulma.png" alt="Logo">
                     </a>
+                    @if (Auth::guest())
+
+                    @else
+                        <a href="/home" class="nav-item is-hidden-mobile {{ Route::is('home') ? 'is-active' : '' }}">
+                            Home
+                        </a>
+                    @endif
                 </div>
                 <span class="nav-toggle">
                     <span></span>
@@ -14,9 +21,14 @@
                     <span></span>
                 </span>
                 <div class="nav-right nav-menu">
-                    <a href="/home" class="nav-item">
-                        Home
-                    </a>
+                    @if (Auth::guest())
+
+                    @else
+                        <a href="/home" class="nav-item is-hidden-tablet {{ Route::is('home') ? 'is-active' : '' }}">
+                            Home
+                        </a>
+                    @endif
+
                     @if (Auth::guest())
                         <a href="{{ route('login') }}" class="nav-item {{ Route::is('login') ? 'is-active' : '' }}">
                             Login

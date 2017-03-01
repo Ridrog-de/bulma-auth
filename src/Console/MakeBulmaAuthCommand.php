@@ -53,39 +53,14 @@ class MakeBulmaAuthCommand extends Command
      */
     public function fire()
     {
-
-        $this->createDirectories();
-
-        $this->exportViews();
-
-        $this->copyLogo();
-
-        $this->copyController();
-
-        $this->copyRoutes();
-/*
-         if (! $this->option('views')) {
-             file_put_contents(
-             app_path('Http/Controllers/HomeController.php'),
-             $this->compileControllerStub()
-             );
-
-                            file_put_contents(
-                                base_path('routes/web.php'),
-                                file_get_contents(__DIR__.'/stubs/make/routes.stub'),
-                                FILE_APPEND
-                            );
-                        }
-
-                        $this->info('Authentication scaffolding generated successfully.');
-                        */
+        $this->createDirectories()
+            ->exportViews()
+            ->copyLogo()
+            ->copyController()
+            ->copyRoutes()
+            ->copySass();
     }
 
-    /**
-     * Create the directories for the files.
-     *
-     * @return void
-     */
     protected function createDirectories()
     {
         if (! is_dir(base_path('resources/views/layouts/app'))) {
@@ -103,13 +78,10 @@ class MakeBulmaAuthCommand extends Command
         if (! is_dir(base_path('public/img/logo'))) {
             mkdir(base_path('public/img/logo'), 0755, true);
         }
+
+        return $this;
     }
 
-    /**
-     * Export the authentication views.
-     *
-     * @return void
-     */
     protected function exportViews()
     {
         foreach ($this->views as $key => $value) {
@@ -118,6 +90,8 @@ class MakeBulmaAuthCommand extends Command
                 base_path('resources/views/'.$value)
             );
         }
+
+        return $this;
     }
 
     protected function copyLogo()
@@ -126,6 +100,8 @@ class MakeBulmaAuthCommand extends Command
             __DIR__.'/Assets/logo/bulma.png',
             base_path('public/img/logo/bulma.png')
         );
+
+        return $this;
     }
 
     protected function copyRoutes()
@@ -134,6 +110,8 @@ class MakeBulmaAuthCommand extends Command
             __DIR__.'/Routes/web.php',
             base_path('routes/web.php')
         );
+
+        return $this;
     }
 
     protected function copyController()
@@ -147,19 +125,18 @@ class MakeBulmaAuthCommand extends Command
             __DIR__.'/Controller/WelcomeController.php',
             base_path('app/Http/Controllers/WelcomeController.php')
         );
+
+        return $this;
     }
 
-    /**
-     * Compiles the HomeController stub.
-     *
-     * @return string
-     */
-    protected function compileControllerStub()
+    protected function copySass()
     {
-        return str_replace(
-            '{{namespace}}',
-            $this->getAppNamespace(),
-            file_get_contents(__DIR__.'/stubs/make/controllers/HomeController.stub')
+        copy(
+            __DIR__.'/Assets/sass/app.scss',
+            base_path('resources/assets/sass/app.scss')
         );
+
+        return $this;
     }
+
 }
