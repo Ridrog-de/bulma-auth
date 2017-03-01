@@ -59,6 +59,13 @@ class MakeBulmaAuthCommand extends Command
             ->copyController()
             ->copyRoutes()
             ->copySass();
+
+        $this->info("---------------------------------------");
+        $this->info("| Done");
+        $this->info("| Next steps: ");
+        $this->info("| npm install --save-dev bulma");
+        $this->info("| npm run dev");
+        $this->info("---------------------------------------");
     }
 
     protected function createDirectories()
@@ -134,6 +141,11 @@ class MakeBulmaAuthCommand extends Command
         copy(
             __DIR__.'/Assets/sass/app.scss',
             base_path('resources/assets/sass/app.scss')
+        );
+
+        copy(
+            __DIR__.'/Assets/sass/_variables.scss',
+            base_path('resources/assets/sass/_variables.scss')
         );
 
         return $this;
