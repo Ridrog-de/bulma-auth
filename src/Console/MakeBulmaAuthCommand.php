@@ -14,14 +14,14 @@ class MakeBulmaAuthCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:bulma-auth {--views : Only scaffold the authentication views}';
+    protected $signature = 'make:bulma-auth';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Scaffold bulma login and registration views and routes';
+    protected $description = 'Scaffold Bulma.io Masterview, Login and Registration views and routes';
 
     /**
      * The views that need to be exported.
