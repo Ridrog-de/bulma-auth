@@ -58,7 +58,8 @@ class MakeBulmaAuthCommand extends Command
             ->copyLogo()
             ->copyController()
             ->copyRoutes()
-            ->copySass();
+            ->copySass()
+            ->copyFonts();
 
         $this->info("---------------------------------------");
         $this->info("| Done");
@@ -147,6 +148,28 @@ class MakeBulmaAuthCommand extends Command
             __DIR__.'/Assets/sass/_variables.scss',
             base_path('resources/assets/sass/_variables.scss')
         );
+
+        return $this;
+    }
+
+    public $fonts = [
+        'FontAwesome.otf',
+        'fontawesome-webfont.eot',
+        'fontawesome-webfont.svg',
+        'fontawesome-webfont.ttf',
+        'fontawesome-webfont.woff',
+        'fontawesome-webfont.woff2',
+    ];
+
+    public function copyFonts(){
+
+        foreach ($this->fonts as $font){
+            copy(
+                __DIR__.'/Assets/fonts/'.$font,
+                base_path('public/fonts/'.$font)
+            );
+
+        }
 
         return $this;
     }
