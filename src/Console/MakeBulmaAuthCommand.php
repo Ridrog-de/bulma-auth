@@ -87,6 +87,10 @@ class MakeBulmaAuthCommand extends Command
             mkdir(base_path('public/img/logo'), 0755, true);
         }
 
+        if (! is_dir(base_path('public/fonts'))) {
+            mkdir(base_path('public/fonts'), 0755, true);
+        }
+
         return $this;
     }
 
