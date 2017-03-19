@@ -64,7 +64,7 @@ class MakeBulmaAuthCommand extends Command
         $this->info("---------------------------------------");
         $this->info("| Done");
         $this->info("| Next steps: ");
-        $this->info("| npm install --save-dev bulma");
+        $this->info("| npm install --save-dev bulma font-awesome");
         $this->info("| npm run dev");
         $this->info("---------------------------------------");
     }
