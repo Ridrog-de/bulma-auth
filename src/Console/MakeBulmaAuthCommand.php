@@ -59,6 +59,7 @@ class MakeBulmaAuthCommand extends Command
             ->copyController()
             ->copyRoutes()
             ->copySass()
+            ->copyJS()
             ->copyFonts();
 
         $this->info("---------------------------------------");
@@ -151,6 +152,16 @@ class MakeBulmaAuthCommand extends Command
         copy(
             __DIR__.'/Assets/sass/_variables.scss',
             base_path('resources/assets/sass/_variables.scss')
+        );
+
+        return $this;
+    }
+
+    protected function copyJS()
+    {
+        copy(
+            __DIR__.'/Assets/js/bootstrap.js',
+            base_path('resources/assets/js/bootstrap.js')
         );
 
         return $this;
