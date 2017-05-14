@@ -44,6 +44,8 @@ class MakeBulmaAuthCommand extends Command
         'auth\passwords\email.blade.php' => 'auth/passwords\email.blade.php',
         'auth\passwords\reset.blade.php' => 'auth/passwords\reset.blade.php',
 
+        'pagination\default.blade.php' => 'vendor/pagination/default.blade.php',
+
     ];
 
     /**
@@ -82,6 +84,10 @@ class MakeBulmaAuthCommand extends Command
 
         if (! is_dir(base_path('resources/views/auth/passwords'))) {
             mkdir(base_path('resources/views/auth/passwords'), 0755, true);
+        }
+
+        if (! is_dir(base_path('resources/views/vendor/pagination'))) {
+            mkdir(base_path('resources/views/vendor/pagination'), 0755, true);
         }
 
         if (! is_dir(base_path('public/img/logo'))) {
