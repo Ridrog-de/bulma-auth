@@ -1,6 +1,11 @@
 @extends(config('bulma-auth.masterview'))
 
 
+@section('meta')
+    <title>{{ config('app.name') . ' | Request Password' }}</title>
+@endsection
+
+
 @section(config('bulma-auth.section'))
 <section class="hero is-bold">
 
