@@ -14,17 +14,9 @@ class BulmaAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        $this->app->make('Ridrog\BulmaAuth\BulmaAuthController');
-
         $this->publishes([
             __DIR__.'/config.php' => config_path('bulma-auth.php'),
         ], 'bulma-auth-config');
-
-        // $this->loadViewsFrom(__DIR__.'/Views', 'bulma-auth');
-
-
 
         if ($this->app->runningInConsole()) {
             $this->commands([
