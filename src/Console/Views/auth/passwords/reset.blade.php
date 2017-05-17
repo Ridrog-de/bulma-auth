@@ -1,4 +1,4 @@
-@extends(config('bulma-auth.masterview'))
+@extends('layouts.app')
 
 
 @section('meta')
@@ -6,7 +6,7 @@
 @endsection
 
 
-@section(config('bulma-auth.section'))
+@section('content')
 <section class="hero is-bold">
 
     <div class="hero-body">

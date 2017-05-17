@@ -11,7 +11,9 @@
 
 
 @section('content')
+<section class="section">
 
+</section>
 @endsection
 
 
@@ -39,8 +41,21 @@
     <nav class="tabs is-boxed is-fullwidth">
         <div class="container">
             <ul>
-                <li class="is-active"><a>Link active</a></li>
-                <li><a>Link</a></li>
+                <li class="is-active">
+                    <a>
+                        Link active
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Link
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Link
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

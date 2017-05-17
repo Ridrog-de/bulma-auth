@@ -11,7 +11,11 @@
 
 
 @section('content')
-
+<section class="section">
+    <p>
+        Some Text
+    </p>
+</section>
 @endsection
 
 
@@ -37,14 +41,28 @@
 
 @push('heronav')
 <div class="hero-foot">
+
     <nav class="tabs is-boxed is-fullwidth">
         <div class="container">
             <ul>
-                <li class="is-active"><a>Link active</a></li>
-                <li><a>Link</a></li>
-
+                <li class="is-active">
+                    <a>
+                        Link active
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Link
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Link
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 </div>
+
 @endpush
